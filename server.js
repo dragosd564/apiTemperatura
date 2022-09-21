@@ -11,7 +11,7 @@ var app = express()
 bd( config.DB_URL )
 
 var corsOptions = {
-    origin: ['http://localhost:3000', 'http://127.0.0.1:5500',"https://granjazenon.netlify.app"],
+    origin: ['http://127.0.0.1:5500',"https://granjazenon.netlify.app"],
     credentials: true,
 };
 
@@ -23,5 +23,5 @@ app.use(body_parser.urlencoded({extended:false}))
 routes( app )
 
 app.use(config.CLIENT_URL, express.static(config.CLIENT_DIR))
-app.listen( process.env.PORT || 5000)
+app.listen( config.PORT ||process.env.PORT || 5000)
 console.log(`La aplicacion esta escuchando en http://localhost:${config.PORT}`)

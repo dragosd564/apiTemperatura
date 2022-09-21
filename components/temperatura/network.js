@@ -5,6 +5,12 @@ const controller = require('./controller')
 
 const route = express.Router()
 
+route.post('/', function(req, res) {
+    controller.addTemperatura(req.body)
+        .then( (dato) => response.success(req, res, dato, 200) )
+        .catch( (dato) => response.error(req, res, dato, 500) )
+})
+
 route.get('/', function(req, res){
     const filterUsers = req.body || null
     controller.getTemperatura(filterUsers)
