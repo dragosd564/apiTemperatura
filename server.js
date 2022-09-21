@@ -4,6 +4,7 @@ const body_parser = require('body-parser')
 const config = require('./config')
 const routes = require('./network/routes')
 const bd = require('./bd')
+const cors = require('cors');
 
 var app = express()
 
