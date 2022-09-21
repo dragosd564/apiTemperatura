@@ -9,6 +9,12 @@ var app = express()
 
 bd( config.DB_URL )
 
+var corsOptions = {
+    origin: ['http://localhost:3000', 'https://easytalkchat.netlify.app'],
+    credentials: true,
+};
+app.use(cors(corsOptions));
+
 app.use(body_parser.json())
 app.use(body_parser.urlencoded({extended:false}))
 
